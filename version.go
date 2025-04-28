@@ -8,7 +8,7 @@ const (
 	// DefaultHash is the default hash if there is no hash provided.
 	DefaultHash = "dev"
 	// DefaultVersion is the default version if there is no hash provided.
-	DefaultVersion = "1.15.0"
+	DefaultVersion = "0.1.0"
 )
 
 var (
