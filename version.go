@@ -6,9 +6,9 @@ import (
 
 const (
 	// DefaultHash is the default hash if there is no hash provided.
-	DefaultHash = "dev"
+	DefaultHash = "unknown"
 	// DefaultVersion is the default version if there is no hash provided.
-	DefaultVersion = "1.15.0"
+	DefaultVersion = "unknown"
 )
 
 var (
