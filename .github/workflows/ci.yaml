@@ -53,7 +53,7 @@ jobs:
           version: latest
           verb: call
           args: >-
-            -s publish-tag
+            publish-tag
             --source-dir=.
             --token=env:GITHUB_TOKEN
         env:
