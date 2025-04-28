@@ -55,6 +55,8 @@ jobs:
           args: >-
             -s publish-tag
             --source-dir=.
+            --user=env:GITHUB_ACTOR
             --token=env:GITHUB_TOKEN
         env:
+          GITHUB_ACTOR: ${{ github.actor }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
