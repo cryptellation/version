@@ -4,19 +4,12 @@ import (
 	"fmt"
 )
 
-const (
-	// DefaultHash is the default hash if there is no hash provided.
-	DefaultHash = "unknown"
-	// DefaultVersion is the default version if there is no hash provided.
-	DefaultVersion = "unknown"
-)
-
 var (
 	// Version of the application.
-	globalVersion = DefaultVersion
+	globalVersion string
 
 	// Revision of the application.
-	globalCommitHash = DefaultHash
+	globalCommitHash string
 )
 
 // Version returns a string representing the current version.
@@ -46,10 +39,16 @@ func CommitHash() string {
 //
 // Returns only the version if the commit hash is not defined.
 func FullVersion() string {
-	if globalCommitHash == "" {
-		return Version()
+	switch {
+	case globalVersion == "" && globalCommitHash == "":
+		return "unknown"
+	case globalVersion == "":
+		return globalCommitHash
+	case globalCommitHash == "":
+		return globalVersion
+	default:
+		return fullVersion(globalVersion, globalCommitHash)
 	}
-	return fullVersion(globalVersion, globalCommitHash)
 }
 
 func fullVersion(version, commitHash string) string {
