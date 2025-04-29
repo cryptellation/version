@@ -50,7 +50,7 @@ func (mod *Version) Check(
 ) *dagger.Container {
 	c := dag.Container().From("ghcr.io/cryptellation/checker")
 	return mod.withGoCodeAndCacheAsWorkDirectory(c, sourceDir).
-		WithExec([]string{"checker"})
+		WithExec([]string{"checker", "--check-test-tags=false"})
 }
 
 // Lint runs golangci-lint on the source code in the given directory.
